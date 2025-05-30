@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import { FiGithub, FiExternalLink, FiCode } from "react-icons/fi";
 
@@ -8,18 +9,18 @@ const Projects = () => {
 
   const projects = [
     {
-      id: 1,
+      id: "254-elite-safaris",
       title: "254 Elite Safaris",
       category: "web",
       tags: ["React", "Tailwind CSS", "Web3Forms"],
-      image: "sf.jpg",
+      image: "/sf.jpg",
       description:
         "A responsive travel booking website for 254 Elite Safaris, featuring airport transfers, safari packages, and contact forms integrated with Web3Forms.",
-      demoLink: "https://254elitesafaris.co.ke", // Replace with your actual domain if different
+      demoLink: "https://254elitesafaris.co.ke",
       caseStudyLink: "/projects/254-elite-safaris",
     },
     {
-      id: 2,
+      id: "ecommerce-platform",
       title: "E-commerce Platform",
       category: "frontend",
       tags: ["React", "Redux", "Tailwind CSS"],
@@ -28,11 +29,10 @@ const Projects = () => {
       description:
         "A modern e-commerce platform with a responsive design, cart functionality, and payment integration.",
       demoLink: "#",
-
       caseStudyLink: "/projects/ecommerce-platform",
     },
     {
-      id: 3,
+      id: "task-management",
       title: "Task Management App",
       category: "fullstack",
       tags: ["Next.js", "MongoDB", "Tailwind CSS"],
@@ -41,23 +41,33 @@ const Projects = () => {
       description:
         "A productivity tool for teams to manage projects, tasks, and deadlines with real-time updates.",
       demoLink: "#",
-
       caseStudyLink: "/projects/task-management",
     },
     {
-      id: 4,
-      title: "Ecovert initiative",
+      id: "ecovert-initiative",
+      title: "Ecovert Sustainable Advertising",
       category: "frontend",
       tags: ["React", "Tailwind CSS", "Sustainability"],
       image: "/ec1.jpg",
       description:
-        "A sustainability-focused platform for Ecovert, showcasing eco-friendly Advertising solutions using aluminum and carton instead of plastic bottles.",
-      demoLink: "#",
-
-      caseStudyLink: "/projects/ecovert-Initiative",
+        "A sustainability-focused platform for Ecovert, showcasing eco-friendly advertising solutions using aluminum and carton instead of plastic bottles.",
+      demoLink: "https://ecovert.netlify.app/",
+      caseStudyLink: "/projects/ecovert-initiative",
     },
     {
-      id: 5,
+      id: "travel-blog",
+      title: "Travel Blog",
+      category: "web",
+      tags: ["Figma", "WordPress", "CSS", "JavaScript"],
+      image:
+        "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      description:
+        "A beautiful travel blog with a custom theme focusing on typography and photography.",
+      demoLink: "#",
+      caseStudyLink: "/projects/travel-blog",
+    },
+    {
+      id: "healthcare-app",
       title: "Healthcare Mobile App",
       category: "mobile",
       tags: ["React Native", "Firebase", "Expo"],
@@ -66,11 +76,10 @@ const Projects = () => {
       description:
         "A healthcare app that helps users track medications, appointments, and health metrics.",
       demoLink: "#",
-
       caseStudyLink: "/projects/healthcare-app",
     },
     {
-      id: 6,
+      id: "restaurant-booking",
       title: "Restaurant Booking System",
       category: "fullstack",
       tags: ["Vue.js", "Node.js", "Express", "MongoDB"],
@@ -79,7 +88,6 @@ const Projects = () => {
       description:
         "A complete reservation system for restaurants with table management and customer notifications.",
       demoLink: "#",
-
       caseStudyLink: "/projects/restaurant-booking",
     },
   ];
@@ -94,12 +102,12 @@ const Projects = () => {
     { value: "frontend", label: "Frontend" },
     { value: "fullstack", label: "Full Stack" },
     { value: "mobile", label: "Mobile" },
-    { value: "design", label: "Design" },
+    { value: "web", label: "Web" },
   ];
 
   return (
     <section id="projects" className="py-24 bg-background section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-3">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-title">My Projects</h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -173,7 +181,7 @@ const Projects = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-3 mt-auto">
-                      {project.demoLink && (
+                      {project.demoLink && project.demoLink !== "#" && (
                         <a
                           href={project.demoLink}
                           target="_blank"
@@ -197,13 +205,13 @@ const Projects = () => {
                         </a>
                       )}
 
-                      <a
-                        href={project.caseStudyLink}
+                      <Link
+                        to={project.caseStudyLink}
                         className="flex items-center gap-1 px-3 py-1 rounded bg-primary-blue text-white hover:bg-primary-blue/90 text-sm ml-auto transition-colors"
                       >
                         <FiCode className="w-4 h-4" />
                         <span>Case Study</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

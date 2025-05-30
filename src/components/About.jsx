@@ -28,10 +28,10 @@ const About = () => {
       className="py-24 bg-background section-padding"
       ref={ref}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-3">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-title">About Me</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-muted-foreground ">
             Get to know more about me, my experience, and what drives my passion
             for creating amazing digital experiences.
           </p>
@@ -42,11 +42,11 @@ const About = () => {
             <div className="mb-10">
               <h3 className="text-2xl font-medium mb-4">Who I Am</h3>
               <p className="mb-4 text-muted-foreground">
-                I'm a passionate frontend developer and designer with over vast
-                knowledge a great experience in creating beautiful and functional
-                user interfaces. I specialize in React JS and modern web
-                technologies, with a strong focus on creating responsive and
-                user-friendly experiences.
+                I'm a passionate Software developer and designer with vast
+                knowledge a great experience in creating beautiful and
+                functional interfaceses. I specialize in Full stack Development
+                and modern web technologies, with a strong focus on creating
+                responsive and user-friendly experiences.
               </p>
               <p className="mb-4 text-muted-foreground">
                 My approach combines creative design thinking with technical
@@ -117,7 +117,10 @@ const About = () => {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection className="lg:w-3/5 order-1 lg:order-2" delay={0.2}>
+          <AnimatedSection
+            className="w-[88%] md:w-1/2 order-1 lg:order-2"
+            delay={0.2}
+          >
             <div className="relative">
               <div className="relative z-10 overflow-hidden rounded-lg shadow-lg">
                 <img

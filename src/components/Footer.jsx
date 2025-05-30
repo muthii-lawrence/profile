@@ -12,8 +12,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background border-t border-border py-12 px-6">
-      <div className="container mx-auto">
+    <footer className="bg-background border-t border-border pt-12 pb-3 px-4">
+      <div className="container mx-auto px-0">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold text-primary-blue mb-2">
@@ -64,23 +64,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
+        <div className="pt-4 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-sm text-muted-foreground">
               &copy; {currentYear} Lawrence Murage. All rights reserved.
             </p>
-          </div>
-
-          <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service"].map((item, index) => (
-              <a
-                key={index}
-                href="#"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item}
-              </a>
-            ))}
           </div>
         </div>
       </div>

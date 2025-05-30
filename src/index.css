@@ -95,7 +95,7 @@
 }
 
 .section-padding {
-  @apply py-20 px-6 md:px-12 lg:px-24;
+  @apply py-20 px-0 md:px-12 lg:px-24;
 }
 
 .animate-on-scroll {

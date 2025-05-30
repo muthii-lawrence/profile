@@ -64,7 +64,7 @@ const Services = () => {
 
   return (
     <section id="services" className="py-24 bg-muted/30 section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-3">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-title">My Services</h2>
           <p className="mt-4 text-lg text-muted-foreground">

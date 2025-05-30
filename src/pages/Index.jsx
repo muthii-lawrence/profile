@@ -16,7 +16,6 @@ const Index = () => {
   const { darkMode, setDarkMode } = React.useContext(ThemeContext);
   const location = useLocation();
 
-  // 🔽 Scroll to the hash section (e.g. #projects) if it exists
   useEffect(() => {
     if (location.hash) {
       const el = document.querySelector(location.hash);

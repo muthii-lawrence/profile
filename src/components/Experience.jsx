@@ -6,13 +6,20 @@ import { FiBriefcase, FiCalendar, FiMapPin } from "react-icons/fi";
 const Experience = () => {
   const experiences = [
     {
-      title: "UI/UX Designer",
+      title: "Web Designer",
       company: "Creative  Studio",
       location: "Washington",
       period: "2025",
       description:
         "Created user interfaces for web and mobile applications. Conducted user research and testing to improve product usability. Designed wireframes, prototypes, and visual assets for client projects.",
-      logo: "https://via.placeholder.com/100?text=CWS",
+    },
+    {
+      title: "Web Developer",
+      company: "StudioPXL Studio",
+      location: "Iran",
+      period: "2025",
+      description:
+        "Developed user interfaces for StudioPXL applications. Implemented responsive designs and interactive UI components. Designed wireframes, prototypes, and visual assets according to te client needs.",
     },
     {
       title: "Frontend Developer",
@@ -21,13 +28,12 @@ const Experience = () => {
       period: "2022 - 2023",
       description:
         "Developed and maintained client websites using React and Vue.js. Collaborated with designers to implement responsive designs and interactive UI components. Managed a team of junior developers.",
-      logo: "https://via.placeholder.com/100?text=DSA",
     },
   ];
 
   return (
     <section id="experience" className="py-24 bg-muted/30 section-padding">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-3">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="section-title">My Experience</h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -51,14 +57,6 @@ const Experience = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
-                  <div className="w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
-                    <img
-                      src={exp.logo}
-                      alt={`${exp.company} logo`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
                   <div className="flex-grow">
                     <h3 className="text-xl font-semibold">{exp.title}</h3>
                     <h4 className="text-lg text-primary-blue mb-1">

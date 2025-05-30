@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FiArrowLeft, FiGithub, FiExternalLink } from "react-icons/fi";
+import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import AnimatedSection from "../components/AnimatedSection";
 import { projects } from "../data/projects";
@@ -11,13 +11,13 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const { toast } = useToast();
 
-  // Find the project that matches the ID from the URL
+  // Match string id directly
   const project = projects.find((p) => p.id === id);
 
+  // Rest of the file remains unchanged
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // If project is not found, show error toast
     if (!project) {
       toast({
         title: "Project not found",
@@ -27,7 +27,6 @@ const ProjectDetail = () => {
     }
   }, [id, project, toast]);
 
-  // If project not found, show a simple message
   if (!project) {
     return (
       <div className="bg-background min-h-screen pt-24 flex flex-col items-center justify-center px-6">
@@ -46,35 +45,34 @@ const ProjectDetail = () => {
     );
   }
 
-  // Sections to render
   const sections = [
     {
       title: "Project Overview",
-      content: project.description,
+      content: project.description || "No overview provided.",
       delay: 0.1,
     },
     {
       title: "Challenges",
-      content: project.challenges,
+      content: project.challenges || "No challenges documented.",
       delay: 0.2,
     },
     {
       title: "Solutions & Approach",
-      content: project.solutions,
+      content: project.solutions || "No solutions documented.",
       delay: 0.3,
     },
   ];
 
   return (
-    <div className="bg-background min-h-screen pt-20">
+    <div className="bg-background min-h-screen md:pt-20">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-blue to-primary-green text-white py-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto md:px-6">
           <Link
             to={{ pathname: "/", hash: "#projects" }}
-            className="flex items-center gap-2 text-red-300"
+            className="flex items-center gap-2 text-white hover:text-red-300"
           >
-            <IoMdArrowRoundBack className="text-white" />
+            <IoMdArrowRoundBack className="w-5 h-5" />
             Back to Portfolio
           </Link>
 
@@ -93,7 +91,7 @@ const ProjectDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            {project.subtitle}
+            {project.subtitle || "A showcase of innovative solutions."}
           </motion.p>
 
           <motion.div
@@ -102,7 +100,7 @@ const ProjectDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {project.technologies.map((tech, index) => (
+            {(project.technologies || []).map((tech, index) => (
               <span
                 key={index}
                 className="px-3 py-1 bg-white/20 rounded-full text-sm"
@@ -115,8 +113,8 @@ const ProjectDetail = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-5xl">
+      <section className="py-16 md:px-6">
+        <div className="container mx-auto max-w-5xl px-4">
           {/* Featured Image */}
           <AnimatedSection className="mb-16">
             <div className="rounded-xl overflow-hidden shadow-lg">
@@ -155,7 +153,7 @@ const ProjectDetail = () => {
               <AnimatedSection className="mb-12" delay={0.4}>
                 <h2 className="text-2xl font-semibold mb-4">Project Gallery</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {project.gallery.map((img, index) => (
+                  {(project.gallery || []).map((img, index) => (
                     <motion.div
                       key={index}
                       className="rounded-lg overflow-hidden"
@@ -169,6 +167,11 @@ const ProjectDetail = () => {
                       />
                     </motion.div>
                   ))}
+                  {(!project.gallery || project.gallery.length === 0) && (
+                    <p className="text-muted-foreground">
+                      No gallery images available.
+                    </p>
+                  )}
                 </div>
               </AnimatedSection>
             </div>
@@ -186,32 +189,37 @@ const ProjectDetail = () => {
                       <span className="text-sm text-muted-foreground">
                         Client
                       </span>
-                      <p className="font-medium">{project.client}</p>
+                      <p className="font-medium">
+                        {project.client || "Not specified"}
+                      </p>
                     </div>
                     <div>
                       <span className="text-sm text-muted-foreground">
                         Year
                       </span>
-                      <p className="font-medium">{project.year}</p>
+                      <p className="font-medium">
+                        {project.year || "Not specified"}
+                      </p>
                     </div>
                     <div>
                       <span className="text-sm text-muted-foreground">
                         Role
                       </span>
-                      <p className="font-medium">{project.role}</p>
+                      <p className="font-medium">
+                        {project.role || "Not specified"}
+                      </p>
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    {project.demoLink && (
+                    {project.demoLink && project.demoLink !== "#" && (
                       <a
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-primary-blue text-white rounded-md hover:bg-primary-blue/90 transition-colors"
+                        className="flex items-center justify-center gap-2 w-full md:px-4 py-2 bg-primary-blue text-white rounded-md hover:bg-primary-blue/90 transition-colors"
                       >
                         <FiExternalLink className="w-4 h-4" />
-
                         <span>Live Demo</span>
                       </a>
                     )}

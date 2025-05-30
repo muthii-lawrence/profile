@@ -32,9 +32,8 @@ const Hero = () => {
               <div className="text-xl md:text-2xl text-white/90 font-medium mb-6 h-8">
                 <ReactTyped
                   strings={[
-                    "Frontend Developer",
+                    "Software Developer",
                     "UX Designer",
-                    "Creative Thinker",
                     "Problem Solver",
                   ]}
                   typeSpeed={50}
@@ -88,11 +87,11 @@ const Hero = () => {
               </div>
               <motion.div
                 className="absolute -bottom-4 -right-4 bg-white rounded-full p-4 shadow-lg"
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -20, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
               >
                 <div className="w-16 h-16 rounded-full bg-primary-green flex items-center justify-center">
-                  <span className="text-white font-bold">10+</span>
+                  <span className="text-white font-bold">20+</span>
                 </div>
               </motion.div>
             </div>
